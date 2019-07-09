@@ -152,6 +152,20 @@
 					"index.html"
 				],
 				"priority": 0
+			},
+			"page/me.html": {
+				"resources": [],
+				"refer": [
+					"page/myface.html"
+				],
+				"priority": 0
+			},
+			"page/myface.html": {
+				"resources": [],
+				"refer": [
+					"plugin/v3.1.6/myface-uploader.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {
