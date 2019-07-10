@@ -21,7 +21,7 @@
 		             </a>
 		         </li>
 		         <li class="mui-table-view-cell mui-media">
-		             <a href="javascript:;">
+		             <a href="javascript:;" id="link_nickname">
 		             	<span class="mui-pull-right mui-icon mui-icon-arrowright" style="color: lightgray;margin-left: 3px;"></span>
 		                 <span id="span_nickname" class="mui-pull-right" style="color: gray;font-size: 14px;"></span>
 		                 <div class="mui-media-body">
@@ -72,6 +72,11 @@
 				var link_myface=document.getElementById("link_myface");
 				link_myface.addEventListener("tap",function(){
 					mui.openWindow("myface.html","myface.html");
+				})
+				//页面跳转，修改昵称
+				var link_nickname=document.getElementById("link_nickname");
+				link_nickname.addEventListener("tap",function(){
+					mui.openWindow("mynickname.html","mynickname.html");
 				})
 				//添加自定义事件，刷新头像
 				window.addEventListener("refresh",function(){

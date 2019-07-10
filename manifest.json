@@ -156,7 +156,8 @@
 			"page/me.html": {
 				"resources": [],
 				"refer": [
-					"page/myface.html"
+					"page/myface.html",
+					"page/mynickname.html"
 				],
 				"priority": 0
 			},

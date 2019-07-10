@@ -25,13 +25,15 @@
   },
   "page/me.html": {
     "refer": [
-      "page/myface.html"
+      "page/myface.html",
+      "page/mynickname.html"
     ],
     "resources": []
   },
   "page/myface.html": {
     "refer": [
       "plugin/v3.1.6/myface-uploader.html"
-    ]
+    ],
+    "resources": []
   }
 }
