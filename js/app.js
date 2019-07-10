@@ -6,7 +6,7 @@ window.app={
 	/**
 	 * 图片服务器的url地址
 	 */
-	imgServerUrl:"",
+	imgServerUrl:"http://119.27.169.133/",
 	/**
 	 * 判断字符串是否为空
 	 * @param {Object} str
