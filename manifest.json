@@ -157,7 +157,9 @@
 				"resources": [],
 				"refer": [
 					"page/myface.html",
-					"page/mynickname.html"
+					"page/mynickname.html",
+					"page/myqrcode.html",
+					"login.html"
 				],
 				"priority": 0
 			},
@@ -165,6 +167,28 @@
 				"resources": [],
 				"refer": [
 					"plugin/v3.1.6/myface-uploader.html"
+				],
+				"priority": 0
+			},
+			"page/discover.html": {
+				"resources": [],
+				"refer": [
+					"page/searchFriends.html",
+					"page/scanme.html"
+				],
+				"priority": 0
+			},
+			"page/searchFriends.html": {
+				"resources": [],
+				"refer": [
+					"page/searchFriendsResult.html"
+				],
+				"priority": 0
+			},
+			"page/scanme.html": {
+				"resources": [],
+				"refer": [
+					"page/searchFriendsResult.html"
 				],
 				"priority": 0
 			}

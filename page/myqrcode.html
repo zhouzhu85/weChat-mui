@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/header.css" />
+		<style>
+			
+			#mui-content {
+				width: 100%;
+				position: absolute;
+				top: 44px;
+				bottom: 0px;
+				background: #2e3132;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav title" style="position: fixed;">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left title-color"></a>
+		    <a id="linx_download_qrcode" class="mui-pull-right" style="font-size: 15px;color: white;line-height: 44px;">
+				<img src="../image/download.png" style="width: 20px;"/>
+			</a>
+		    <h1 class="mui-title title-color"><b id="chatting-nickname">我的二维码</b></h1>
+		</header>
+		<div class="mui-content" style="padding: 80px 30px 0px 30px;">
+		    <div style="background-color: white;padding-top: 20px;padding-left: 20px;">
+				<img id="img_myface" src="" width="60px" style="border-radius: 8%;float: left;"/>
+				<label id="lab_nickname" style="float: left;margin-left: 10px;margin-top: 10px;">风间影月</label>
+			</div>
+			<div style="background-color: white;text-align: center;">
+		    	<img id="link_qrcode_img" src="" />
+		    </div>
+		    <div style="background-color: white;text-align: center;">
+		    	<p style="padding-bottom: 10px;font-size: 12px;">扫一扫上面的二维码图案，加我慕信~</p>
+		    </div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/app.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				var user=app.getUserGlobalInfo();
+				var link_qrcode_img=document.getElementById("link_qrcode_img");
+				var lab_nickname=document.getElementById("lab_nickname");
+				var img_myface=document.getElementById("img_myface");
+				img_myface.src=app.imgServerUrl+user.faceImage;
+				lab_nickname.innerHTML=user.nickname;
+				link_qrcode_img.src=app.imgServerUrl+user.qrcode;
+				// 获取手机端可见屏幕宽度
+				var imgWidth = document.body.clientWidth-60;
+				link_qrcode_img.width=imgWidth;
+				link_qrcode_img.height=imgWidth;
+			});
+		</script>
+	</body>
+
+</html>

@@ -90,7 +90,12 @@
 			 		}
 			 	}
 			 })
+			 setTimeout("initData()","1000");
 		})
+		function initData(){
+			var chatListWebview=plus.webview.getWebviewById("chatlist.html");
+			mui.fire(chatListWebview,"refresh");
+		}
 	</script>
 </body>
 </html>

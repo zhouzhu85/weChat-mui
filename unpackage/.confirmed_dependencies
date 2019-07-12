@@ -1,39 +1,57 @@
 {
-  "index.html": {
-    "resources": [
-      "page/chatlist.html"
-    ],
-    "refer": [
-      "page/me.html",
-      "page/discover.html",
-      "page/contact.html",
-      "page/chatlist.html"
-    ]
-  },
-  "login.html": {
-    "refer": [
-      "login.html",
-      "index.html"
-    ],
-    "resources": [
-      "js/app.js",
-      "js/mui.min.js",
-      "css/registLogin/util.css",
-      "css/registLogin/main.css",
-      "css/registLogin/arrow.jpg"
-    ]
-  },
-  "page/me.html": {
-    "refer": [
-      "page/myface.html",
-      "page/mynickname.html"
-    ],
-    "resources": []
-  },
-  "page/myface.html": {
-    "refer": [
-      "plugin/v3.1.6/myface-uploader.html"
-    ],
-    "resources": []
-  }
+	"index.html": {
+		"resources": [
+			"page/chatlist.html"
+		],
+		"refer": [
+			"page/me.html",
+			"page/discover.html",
+			"page/contact.html",
+			"page/chatlist.html"
+		]
+	},
+	"login.html": {
+		"refer": [
+			"login.html",
+			"index.html"
+		],
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/registLogin/util.css",
+			"css/registLogin/main.css",
+			"css/registLogin/arrow.jpg"
+		]
+	},
+	"page/me.html": {
+		"refer": [
+			"page/myface.html",
+			"page/mynickname.html",
+			"page/myqrcode.html",
+			"login.html"
+		],
+		"resources": []
+	},
+	"page/myface.html": {
+		"refer": [
+			"plugin/v3.1.6/myface-uploader.html"
+		],
+		"resources": []
+	},
+	"page/discover.html": {
+		"refer": [
+			"page/searchFriends.html",
+			"page/scanme.html"
+		]
+	},
+	"page/searchFriends.html": {
+		"refer": [
+			"page/searchFriendsResult.html"
+		]
+	},
+	"page/scanme.html": {
+		"refer": [
+			"page/searchFriendsResult.html"
+		]
+	}
 }
