@@ -79,6 +79,10 @@
 		<script type="text/javascript" src="js/app.js" ></script>
 		<script type="text/javascript">
 			mui.plusReady(function(){
+				//禁止返回
+				mui.back=function(){
+					return false;
+				}
 				//判断用户是否为空，如果本地内存有全局的用户对象，此时直接跳转到首页
 				var userInfo=app.getUserGlobalInfo();
 				if(userInfo!=null){
