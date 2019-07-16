@@ -12,13 +12,13 @@
       	mui.init();
       	mui.plusReady(function(){
       		plus.navigator.setStatusBarStyle("light");
-      		plus.navigator.setStatusBarBackground("green");
+      		plus.navigator.setStatusBarBackground("#128E12");
       	})
     </script>
 </head>
 <body>
 	<header class="mui-bar mui-bar-nav title">
-	    <h1 class="mui-title title-color">慕信</h1>
+	    <h1 class="mui-title title-color" id="muxin_title">慕信</h1>
 	</header>
 	<nav class="mui-bar mui-bar-tab">
 	    <a class="mui-tab-item mui-active" tabindex="0">
@@ -66,6 +66,9 @@
 			mui.back=function(){
 				return false;
 			}
+			//对网络连接进行事件监听
+			netChangeSwitch();
+			
 			//获取当前的webview对象
 			var indexWebview=plus.webview.currentWebview();
 			//向当前的主页webview追加子页的4张webview对象
@@ -95,6 +98,22 @@
 		function initData(){
 			var chatListWebview=plus.webview.getWebviewById("chatlist.html");
 			mui.fire(chatListWebview,"refresh");
+		}
+		//监听网络状态
+		function netChangeSwitch(){
+			document.addEventListener("netchange",function(){
+				//网络状态获取和判断
+					var connectionStatus=plus.networkinfo.getCurrentType();
+					if(connectionStatus !=0 && connectionStatus!=1){
+						//重新连接网络
+						var muxin_title=document.getElementById("muxin_title");
+						muxin_title.innerHTML="<b>慕信</b>";
+					}else{
+						//关闭连接
+						var muxin_title=document.getElementById("muxin_title");
+						muxin_title.innerHTML="<b>慕信(网络断开)</b>";
+					}
+			});
 		}
 	</script>
 </body>

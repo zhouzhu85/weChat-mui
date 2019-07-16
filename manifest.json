@@ -191,6 +191,13 @@
 					"page/searchFriendsResult.html"
 				],
 				"priority": 0
+			},
+			"page/contact.html": {
+				"resources": [],
+				"refer": [
+					"page/chatting.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {

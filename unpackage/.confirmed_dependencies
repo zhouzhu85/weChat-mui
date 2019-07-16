@@ -53,5 +53,10 @@
 		"refer": [
 			"page/searchFriendsResult.html"
 		]
+	},
+	"page/contact.html": {
+		"refer": [
+			"page/chatting.html"
+		]
 	}
 }
