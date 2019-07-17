@@ -167,6 +167,15 @@ window.app={
 		return chatHistoryList;
 	},
 	/**
+	 * 删除我和朋友聊天记录
+	 * @param {Object} myId
+	 * @param {Object} friendId
+	 */
+	deleteUserChatHistory:function(myId,friendId){
+		var chatKey="chat-"+myId+"-"+friendId;
+		plus.storage.removeItem(chatKey);
+	},
+	/**
 	 * 获取用户快照记录列表
 	 * @param {Object} myId
 	 */
@@ -183,6 +192,64 @@ window.app={
 			chatSnapshotList=[];
 		}
 		return chatSnapshotList;
+	},
+	/**
+	 * 删除本地的聊天快照记录
+	 * @param {Object} myId
+	 * @param {Object} friendId
+	 */
+	deleteUserChatSnapshot:function(myId,friendId){
+		var me=this;
+		var chatKey="chat-snapshot"+myId;
+		
+		//从本地缓存获取聊天快照列表
+		var chatSnapshotListStr=plus.storage.getItem(chatKey);
+		var chatSnapshotList;
+		if(me.isNotNull(chatSnapshotListStr)){
+			//如果不为空
+			chatSnapshotList=JSON.parse(chatSnapshotListStr);
+			//循环快照列表，并且判断每隔元素是否包含friendId,如果包含则删除
+			for(var i=0;i<chatSnapshotList.length;i++){
+				if(chatSnapshotList[i].friendId==friendId){
+					//删除已经存在的friendId对应的快照对象
+					chatSnapshotList.splice(i,1);
+					break;
+				}
+			}
+		}else{
+			return;
+		}
+		plus.storage.setItem(chatKey,JSON.stringify(chatSnapshotList));
+	},
+	/**
+	 * 标记未读消息为已读
+	 * @param {Object} myId
+	 * @param {Object} friendId
+	 */
+	readUserChatSnapshot:function(myId,friendId){
+		var me=this;
+		var chatKey="chat-snapshot"+myId;
+		//从本地缓存获取聊天快照
+		var chatSnapshotListStr=plus.storage.getItem(chatKey);
+		var chatSnapshotList;
+		if(me.isNotNull(chatSnapshotListStr)){
+			//如果不为空
+			chatSnapshotList=JSON.parse(chatSnapshotListStr);
+			//循环这个list，判读是否存在好友，对比friendId
+			//如果有，在list中的原有位置删除该快照对象，然后重新放入一个标记已读的快照对象
+			for(var i=0;i<chatSnapshotList.length;i++){
+				var item=chatSnapshotList[i];
+				if(item.friendId==friendId){
+					item.isRead=true; //标记已读
+					chatSnapshotList.splice(i,1,item); //替换原有的快照
+					break;
+				}
+			}
+			//替换原有的快照列表
+			plus.storage.setItem(chatKey,JSON.stringify(chatSnapshotList));
+		}else{
+			return;
+		}
 	},
 	/**
 	 * 和后端的枚举对应

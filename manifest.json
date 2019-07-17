@@ -198,6 +198,13 @@
 					"page/chatting.html"
 				],
 				"priority": 0
+			},
+			"page/chatlist.html": {
+				"resources": [],
+				"refer": [
+					"page/chatting.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {
