@@ -155,6 +155,7 @@
 					CHAT.chat(JSON.stringify(dataContent));
 					//每次连接之后，获取用户的未读消息
 					fetchUnReadMsg();
+					setInterval("CHAT.keepalive()","10000");
 				},
 				wsclose:function(){
 					console.log("连接关闭。。");
@@ -201,8 +202,17 @@
 					var dataContentSign=new app.DataContent(app.SIGNED,null,unSignedMsgIds);
 					//发送批量签收的请求
 					CHAT.chat(JSON.stringify(dataContentSign));
-				}
-			}
+				},
+				keepalive:function(){
+					//构建对象
+					var dataContent=new app.DataContent(app.KEEPALIVE,null,null);
+					//发送心跳
+					CHAT.chat(JSON.stringify(dataContent));
+					//定时执行函数
+					fetchUnReadMsg();	//获取服务器的未签收消息
+					fetchContactList();	//获取好友列表
+				},
+			};
 				// 加载好友请求记录列表
 			function loadingFriendRequests(){
 				// 获取用户全局对象

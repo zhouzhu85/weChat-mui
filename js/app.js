@@ -2,11 +2,11 @@ window.app={
 	/**
 	 * netty服务地址
 	 */
-	nettyServerUrl:"ws://192.168.2.116:8088/ws",
+	nettyServerUrl:"ws://192.168.2.102:8088/ws",
 	/**
 	 * 后端服务发布的url地址
 	 */
-	serverUrl:"http://192.168.2.116:8065",
+	serverUrl:"http://192.168.2.102:8065",
 	/**
 	 * 图片服务器的url地址
 	 */
